@@ -484,6 +484,97 @@ body {
   background-color: #f97316;
   transform: scale(1.2);
 }
+.brands-section {
+  padding: 3rem 0;
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+  justify-content: space-evenly;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.brands-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 3rem;
+}
+
+.brands-carousel {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+
+.brands-track {
+  display: flex;
+  position: absolute;
+  width: 200%; /* Two copies of the logos for seamless looping */
+  height: 100%;
+  animation: logoScroll 30s linear infinite;
+}
+
+/* If you need to pause on hover */
+.brands-carousel:hover .brands-track {
+  animation-play-state: paused;
+}
+
+.brands-track-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%; /* Each section is half of the total width */
+  gap: 60px;
+}
+
+.brand-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 150px;
+}
+
+.brand-logo {
+  height: 60px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Animation for scrolling */
+@keyframes logoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Move left by half the width (one complete set) */
+  }
+}
+
+/* Wave divider styles */
+.wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  width: 100%;
+  height: 100px;
+}
+
+.wave-divider .shape-fill {
+  fill: #FFFFFF;
+}
 
 /* Footer Styles */
 .footer {

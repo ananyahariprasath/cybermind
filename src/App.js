@@ -16,20 +16,20 @@ import demo1 from '../src/assets/demo1.png';
 import demo2 from '../src/assets/demo2.png';
 import freelance1 from './assets/freelance1.png';
 import freelance2 from './assets/freelance2.png';
-// import aatchitamizh from './assets/aatchitamizhlogo.webp';
-// import BB from './assets/BBlogo.png';
-// import captain from './assets/captainLogo.webp';
-// import DMK from './DmkLogo.webp';
-// import farmyng from './farmyngclub.png';
-// import hyperlaunch from './assets/hyperlaunch.png';
-// import inesh from './assets/inesh.webp';
-// import ivb from './ivbLogo.jpg';
-// import jobzshala from './assets/jobzshala.png';
-// import moneyrush from './assets/MoneyRushLogo.webp';
-// import ovhqlogo from './ovhqlogo.png';
-// import sarkarias from './sarakariaslogo.png';
-// import schoolnet from './schoolnetLogo.webp';
-// import skilllync from './skillLyncLogo.png';
+import aatchitamizh from './assets/aatchitamizhlogo.webp';
+import BB from './assets/BBlogo.png';
+import captain from './assets/captainLogo.webp';
+import DMK from './assets/DmkLogo.webp';
+import farmyng from './assets/farmyngclub.png';
+import hyperlaunch from './assets/hyperlaunch.png';
+import inesh from './assets/inesh.webp';
+import ivb from './assets/ivbLogo.jpg';
+import jobzshala from './assets/jobzshala.png';
+import moneyrush from './assets/MoneyRushLogo.webp';
+import ovhqlogo from './assets/ovhqlogo.png';
+import schoolnet from './assets/schoolnetLogo.webp';
+import skilllync from './assets/SkillLyncLogo.png';
+// import Profitabill, { CallToAction, Features, Review } from './pages/Profitabill';
 
 
 
@@ -46,6 +46,10 @@ function App() {
       <AppscaleRecognition />
       <WhyUs />
       <Services />
+      {/* <Profitabill />
+      <Review />
+      <CallToAction />
+      <Features /> */}
       <IdeaSection />
       <Footer /> 
     </div>
@@ -122,7 +126,7 @@ function HeroSection() {
           <span className="gradient-text">Fast<br /></span>
           <span className="gradient-text">Reliable <br /></span>
           <span className="gradient-text"> Scalable<br /></span>
-           <span className="gradient-text"><br /></span>
+          <span className="gradient-text">Secure<br /></span>
         </h1>
         
         <p className="hero-subtitle">
@@ -401,78 +405,66 @@ function WorksSection() {
 function BrandCarousel() {
   // Array of brand data with logos and names
   const brands = [
-    { name: "Acework Engineers", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=Acework" },
-    { name: "Sarkar IAS Academy", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=Sarkar" },
-    { name: "Inesh", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=Inesh" },
-    { name: "Captain Fresh", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=Captain+Fresh" },
-    { name: "DMK", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=DMK" },
-    { name: "IAS Study Circle", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=IAS" },
-    { name: "EVB", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=EVB" },
-    { name: "MoneyRush", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=MoneyRush" },
-    { name: "Overqualified Housewives", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=Overqualified" },
-    { name: "JobzShala", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=JobzShala" },
-    { name: "TechFlow", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=TechFlow" },
-    { name: "GreenLeaf", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=GreenLeaf" },
-    { name: "BlueOcean", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=BlueOcean" },
-    { name: "RedPeak", logo: "https://via.placeholder.com/150x60/f8f9fa/212529?text=RedPeak" },
+    { name: "Aatchitamizh", logo: aatchitamizh },
+    { name: "BB", logo: BB },
+    { name: "Captain Fresh", logo: captain },
+    { name: "DMK", logo: DMK },
+    { name: "Farmyng Club", logo: farmyng },
+    { name: "Hyperlaunch", logo: hyperlaunch },
+    { name: "Inesh", logo: inesh },
+    { name: "IVB", logo: ivb },
+    { name: "Jobzshala", logo: jobzshala },
+    { name: "MoneyRush", logo: moneyrush },
+    { name: "Overqualified Housewives", logo: ovhqlogo },
+    { name: "Schoolnet", logo: schoolnet },
+    { name: "Skill-Lync", logo: skilllync },
   ];
 
-  const [position, setPosition] = useState(0);
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPosition((prevPosition) => {
-        if (prevPosition <= -100) {
-          return 0;
-        }
-        return prevPosition - 0.5;
-      });
-    }, 50);
-    
-    return () => clearInterval(interval);
-  }, []);
-  
-  const displayBrands = [...brands, ...brands];
-  
-  return (
-    <div className="flex flex-col items-center w-full bg-gray-50 py-12 overflow-hidden">
-      <h1 className="text-4xl font-bold text-gray-800 mb-12">Brands that trust us.</h1>
-      
-      <div className="relative w-full overflow-hidden">
-        <div 
-          className="flex items-center" 
-          style={{ 
-            transform: `translateX(${position}%)`,
-            transition: position === 0 ? 'none' : 'transform 0.5s linear',
-            width: '200%' // Make the container twice as wide for seamless looping
-          }}
-        >
-          {displayBrands.map((brand, index) => (
-            <div 
-              key={index} 
-              className="flex-none px-6 flex items-center justify-center"
-              style={{ width: '7.14%' }} // 100% / 14 brands = ~7.14% per brand
-            >
-              <img 
-                src={brand.logo} 
-                alt= {`${brand.name} logo`}
-                className="max-h-16 max-w-full object-contain"
-              />
+    return (
+    <section className="brands-section">
+      <div className="container">
+        <h2 className="brands-heading">Brands that trust us.</h2>
+        
+        <div className="brands-carousel">
+          <div className="brands-track">
+            {/* First set of logos */}
+            <div className="brands-track-section">
+              {brands.map((brand) => (
+                <div key={`first-${brand.id}`} className="brand-item">
+                  <img 
+                    src={brand.logo} 
+                    alt={`${brand.name} logo`} 
+                    className="brand-logo"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+            
+            {/* Duplicate set for infinite scrolling */}
+            <div className="brands-track-section">
+              {brands.map((brand) => (
+                <div key={`second-${brand.id}`} className="brand-item">
+                  <img 
+                    src={brand.logo} 
+                    alt={`${brand.name} logo`} 
+                    className="brand-logo"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full">
-          <path 
-            fill="#FFFFFF" 
-            fillOpacity="1" 
-            d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
-          ></path>
+      {/* Wave divider at bottom */}
+      <div className="wave-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" className="shape-fill"></path>
+          <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" className="shape-fill"></path>
+          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" className="shape-fill"></path>
         </svg>
       </div>
-    </div>
+    </section>
   );
 }
 
